@@ -3,6 +3,8 @@ import VueAxios from 'vue-axios'
 import VueAuthenticate from 'vue-authenticate'
 import axios from 'axios'
 
+console.log(axios)
+
 let expireDate = new Date()
 expireDate.setDate(expireDate.getDate() + 1)
 

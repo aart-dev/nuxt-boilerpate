@@ -107,6 +107,7 @@ module.exports = {
       'vue-authenticate',
       'moment',
       'js-cookie',
+      'axios',
     ],
     /*
      ** Run ESLINT on save

@@ -3,7 +3,6 @@
 
     <img src="~assets/img/logo.png" alt="Nuxt.js Logo" class="logo"/>
     <h1 class="title">Aart Nuxt Boilerplate</h1>
-
     <h3>Example</h3>
     <ul class="list-unstyled">
       <li>Vue</li>
