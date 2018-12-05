@@ -7,8 +7,8 @@
 
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
-import { Validator } from 'vee-validate'
-import { types } from '~/store/modules/types'
+import {Validator} from 'vee-validate'
+import {types} from '~/store/modules/types'
 
 Vue.use(VueI18n)
 
@@ -55,18 +55,19 @@ const getLanguageFromCookie = (req) => {
   if (cookies.length === 0) {
     return undefined
   } else {
-    return getLanguageCountryCode(cookies[ 0 ].split('=')[ 1 ])
+    return getLanguageCountryCode(cookies[0].split('=')[1])
   }
 }
 
 const getLanguageFromBrowser = (req) => {
   if (process.server) {
-    // console.log(req.acceptsLanguages()[0]) // ->> ko-KR
-    let acceptLanguage = req.headers['accept-language'].split(',')
-    if (acceptLanguage.length > 0) {
-      return getLanguageCountryCode(acceptLanguage[ 0 ])
-    } else {
-      return undefined
+    if (req.headers['accept-language'] !== undefined) {
+      let acceptLanguage = req.headers['accept-language'].split(',')
+      if (acceptLanguage.length > 0) {
+        return getLanguageCountryCode(acceptLanguage[0])
+      } else {
+        return undefined
+      }
     }
   } else {
     return getLanguageCountryCode(navigator.language || navigator.userLanguage)

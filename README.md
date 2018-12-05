@@ -10,7 +10,7 @@
 This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
 
 ```bash
-vue aart-dev/nuxt-boilerplate <project-name>
+vue init aart-dev/nuxt-boilerplate <project-name>
 cd <project-name> # move to your project
 npm install # or yarn install
 ```

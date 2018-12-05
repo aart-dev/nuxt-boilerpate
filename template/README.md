@@ -21,7 +21,19 @@ $ npm start
 $ git add *
 $ git commit -m "Commit Message"
 $ git push -u origin master
+```
 
+## PM2
+[PM2 Document](https://pm2.io/doc/)
+``` bash
+$ pm2 start ecosystem.config.js
+$ pm2 stop <app_name|id>
+
+$ pm2 list
+$ pm2 show <app_name|id>
+$ pm2 delete <app_name|id>
+$ pm2 logs <app_name|id>
+$ pm2 show monit
 ```
 
 For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
