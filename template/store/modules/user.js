@@ -141,6 +141,22 @@ const actions = {
       }
     }, { root: true })
   },
+  [types.actions.USER_GET_REQUEST_FIND_ID] (context, { fullname, mobile }) {
+    /**
+     * Argument
+     *    - fullname  : String    > 사용자 이름
+     *    - mobile    : String    > 휴대폰 번호
+     */
+    let urlTemp = urlTemplate.parse('/api/v1/find/account{?fullname,mobile}')
+    let requestUrl = urlTemp.expand({
+      fullname: fullname,
+      mobile: mobile
+    })
+    return context.dispatch('requestGet', {
+      requestUrl: requestUrl,
+      isTokenRequired: false
+    }, { root: true })
+  },
   [types.actions.USER_POST_REQUEST_CODE_FOR_FIND_ID] (context, { fullname, mobile }) {
     /**
      * Argument
@@ -173,7 +189,7 @@ const actions = {
       }
     }, { root: true })
   },
-  [types.actions.USER_POST_REQUEST_CODE_FOR_FIND_PASSWORD] (context, { email, fullname, mobile }) {
+  [types.actions.USER_POST_REQUEST_CODE_FOR_FIND_PASSWORD_MOBILE] (context, { email, fullname, mobile }) {
     /**
      * Argument
      *    - email     : String    > 가입한 이메일
@@ -182,6 +198,23 @@ const actions = {
      */
     return context.dispatch('requestPost', {
       requestUrl: '/api/v1/find/password/mobile',
+      isTokenRequired: false,
+      bodyData: {
+        email: email,
+        fullname: fullname,
+        mobile: mobile
+      }
+    }, { root: true })
+  },
+  [types.actions.USER_POST_REQUEST_CODE_FOR_FIND_PASSWORD_EMAIL] (context, { email, fullname, mobile }) {
+    /**
+     * Argument
+     *    - email     : String    > 가입한 이메일
+     *    - fullname  : String    > 사용자 이름
+     *    - mobile    : String    > 휴대폰 번호
+     */
+    return context.dispatch('requestPost', {
+      requestUrl: '/api/v1/find/password/email',
       isTokenRequired: false,
       bodyData: {
         email: email,
@@ -205,7 +238,7 @@ const actions = {
       }
     }, { root: true })
   },
-  [types.actions.USER_POST_RESET_PASSWORD] (context, { email, mobile, code, password }) {
+  [types.actions.USER_POST_RESET_PASSWORD_MOBILE] (context, { mobile, code, password }) {
     /**
      * Argument
      *    - email     : String    > 가입한 이메일
@@ -217,8 +250,25 @@ const actions = {
       requestUrl: '/api/v1/reset/password/mobile',
       isTokenRequired: false,
       bodyData: {
-        email: email,
         mobile: mobile,
+        code: code,
+        password: password
+      }
+    }, { root: true })
+  },
+  [types.actions.USER_POST_RESET_PASSWORD_EMAIL] (context, { email, code, password }) {
+    /**
+     * Argument
+     *    - email     : String    > 가입한 이메일
+     *    - mobile    : String    > 인증번호를 받은 휴대폰 번호
+     *    - code      : String    > 휴대폰으로 받은 인증코드
+     *    - password  : String    > 새로 설정 할 비밀번호
+     */
+    return context.dispatch('requestPost', {
+      requestUrl: '/api/v1/reset/password/email',
+      isTokenRequired: false,
+      bodyData: {
+        email: email,
         code: code,
         password: password
       }

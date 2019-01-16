@@ -30,11 +30,14 @@ export const types = {
     USER_POST_CERTIFICATION: 'postUserCertification', // 사용자 인증코드 요청
     USER_POST_MOBILE_CERTIFICATION_CONFIRM: 'postUserMobileCertificationConfirm', // 사용자 인증코드 확인
     USER_POST_MOBILE_CERTIFICATION_CHANGE: 'postUserMobileCertificationChange', // 사용자 인증코드 확인/변경
+    USER_GET_REQUEST_FIND_ID: 'postRequestFindId', // 아이디 찾기 (인증 없음)
     USER_POST_REQUEST_CODE_FOR_FIND_ID: 'postRequestCodeForFindId', // 아이디 찾기를 위한 인증번호 요청
     USER_POST_CONFIRM_CODE_FOR_FIND_ID: 'postConfirmCodeForFindId', // 아이디 찾기를 위해 요청한 인증번호를 확인하고 아이디를 응답으로 받음
-    USER_POST_REQUEST_CODE_FOR_FIND_PASSWORD: 'postRequestCodeForFindPassword', // 비밀번호 재설정을 위한 인증번호 요청
+    USER_POST_REQUEST_CODE_FOR_FIND_PASSWORD_MOBILE: 'postRequestCodeForFindPasswordMobile', // 비밀번호 재설정을 위한 인증번호 요청
+    USER_POST_REQUEST_CODE_FOR_FIND_PASSWORD_EMAIL: 'postRequestCodeForFindPasswordEmail', // 비밀번호 재설정을 위한 인증번호 요청
     USER_POST_CONFIRM_CODE_FOR_FIND_PASSWORD: 'postConfirmCodeForFindPassword', // 비밀번호 재설정을 위한 인증번호 확인
-    USER_POST_RESET_PASSWORD: 'postResetPassword', // 사용자 비밀번호 재설정
+    USER_POST_RESET_PASSWORD_MOBILE: 'postResetPasswordMobile', // 사용자 비밀번호 재설정(모바일)
+    USER_POST_RESET_PASSWORD_EMAIL: 'postResetPasswordEmail', // 사용자 비밀번호 재설정(이메일)
     USER_POST_LEAVE_USER: 'postLeaveUser', // 회원탈퇴
     USER_STORE_USER_INFO: 'storeUserInfo', // 사용자 정보를 store에 저장
     USER_POST_DUPLICATION_CHECK_EMAIL: 'postDuplicationCheckEmail' // 입력한 이메일이 이미 가입되어 있는지, 탈퇴한 계정인지 판별
