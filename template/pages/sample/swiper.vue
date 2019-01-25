@@ -1,6 +1,6 @@
 <template>
   <section class="container text-center">
-    <h1 class="outer30-bottom">Localization</h1>
+    <h1 class="outer30-bottom">Swiper</h1>
 
     <div v-swiper:mySwiper="swiperOption"
          ref="mySwiper"

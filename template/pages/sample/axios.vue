@@ -1,28 +1,28 @@
 <template>
   <section class="container text-center">
-    <h1 class="outer30-bottom">Axios width Store</h1>
+    <h1 class="outer30-bottom">Http Request with axios</h1>
 
-    <p v-for="item in sample">{{ item.name }}</p>
+    <p v-for="item in sample1">{{ item.name }}</p>
+    <p v-for="item in sample2">{{ item.name }}</p>
   </section>
 </template>
 
 <script>
-  import { types, _types } from '~/store/modules/types'
-  //  import axios from '~/plugins/axios'
+  import AxiosService from '~/service/utils/http/AxiosService'
+  import LocalizationService from '~/service/api/setting/localizationService'
+
+  const http = new AxiosService()
+  const locale = new LocalizationService({language: 'kor'})
 
   export default {
-    async asyncData ({store}) {
-      let data = await store.dispatch(_types('data', types.actions.COMMON_SAMPLE), {
-        isTokenRequired: false
-      }).then(resp => {
-        console.debug(resp.data)
-        return resp.data
-      }).catch((err) => {
-        console.log(err)
-      })
-      // let { data } = await axios.get('/users')
+    async asyncData () {
+      // Service
+      let {data: data1} = await locale.requestGet('/api/v1/setting/language')
+      // Custom Request
+      let {data: data2} = await http.requestGet('/api/v1/setting/language')
       return {
-        sample: data
+        sample1: data1,
+        sample2: data2
       }
     }
   }

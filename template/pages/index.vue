@@ -12,17 +12,22 @@
       <li>&nbsp;</li>
       <li>Library</li>
       <li>
-        <nuxt-link :to="{name: 'sample-authenticate'}">Authenticate</nuxt-link>
+        <nuxt-link :to="{name: 'sample-lodash'}">Vue Lodash</nuxt-link>
       </li>
       <li>
-        <nuxt-link :to="{name: 'sample-validate'}">Validate</nuxt-link>
+        <nuxt-link :to="{name: 'sample-authenticate'}">Vue Authenticate</nuxt-link>
       </li>
       <li>
-        <nuxt-link :to="{name: 'sample-localization'}">Localization</nuxt-link>
+        <nuxt-link :to="{name: 'sample-validate'}">Vee Validate</nuxt-link>
       </li>
       <li>
-        <nuxt-link :to="{name: 'sample-axios'}">Axios with Store</nuxt-link>
+        <nuxt-link :to="{name: 'sample-localization'}">vue-i18n</nuxt-link>
       </li>
+      <li>
+        <nuxt-link :to="{name: 'sample-axios'}">Request</nuxt-link>
+      </li>
+      <li>&nbsp;</li>
+      <li>UI</li>
       <li>
         <nuxt-link :to="{name: 'sample-swiper'}">Vue Swiper</nuxt-link>
       </li>
@@ -34,7 +39,9 @@
   export default {
     async asyncData () {
       // let { data } = await axios.get('/api/users')
-      return {users: 'Deokin'}
+      return {
+        users: 'Deokin'
+      }
     },
     head () {
       return {}
@@ -43,6 +50,8 @@
       return {
         data: 'dummy'
       }
+    },
+    mounted () {
     }
   }
 </script>

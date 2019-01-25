@@ -1,4 +1,5 @@
 import { types } from './types'
+import urlTemplate from 'url-template'
 
 const actions = {
   [types.actions.USER_POST_REGISTER] (context, { userData }) {

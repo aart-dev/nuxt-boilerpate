@@ -75,7 +75,7 @@ module.exports = {
    * Global Variables
    * */
   env: {
-    API_SERVER_ADDRESS: 'http://192.168.0.19:8111',
+    API_SERVER_ADDRESS: 'http://192.168.0.19:8881',
     LANGUAGE_COOKIE_NAME: 'brand-language',
     ACCESS_TOKEN_NAME: 'aart_access_token'
   },
@@ -83,8 +83,7 @@ module.exports = {
    ** modules(ex. google analytics)
    */
   modules: [
-    [ '@nuxtjs/google-analytics' ],
-    [ '@nuxtjs/axios' ]
+    ['@nuxtjs/google-analytics']
   ],
   // Nuxt용 ga 모듈 github : https://github.com/nuxt-community/analytics-module
   // ga모듈의 Document: https://www.gitbook.com/book/matteogabriele/vue-analytics/details
@@ -92,9 +91,6 @@ module.exports = {
     id: 'UA-123251235-1'
   },
   // axios 모듈 https://axios.nuxtjs.org/usage
-  axios: {
-    baseURL: 'http://localhost:13000/api'
-  },
   /*
    ** Add axios globally
    */
@@ -108,6 +104,7 @@ module.exports = {
       'moment',
       'js-cookie',
       'axios',
+      'vue-lodash'
     ],
     /*
      ** Run ESLINT on save
@@ -127,12 +124,12 @@ module.exports = {
    * Plugins
    * */
   plugins: [
-    {src: '~/plugins/axios.js'},
-    {src: '~/plugins/vee-validate.js'},
-    {src: '~/plugins/vue-awesome-swiper.js', ssr: false},
-    {src: '~/plugins/vue-authenticate.js', ssr: false},
     {src: '~/plugins/filters.js'},
-    {src: '~/plugins/vue-i18n.js'}
+    {src: '~/plugins/vue-lodash.js'},
+    {src: '~/plugins/vue-authenticate.js', ssr: false},
+    {src: '~/plugins/vee-validate.js'},
+    {src: '~/plugins/vue-i18n.js'},
+    {src: '~/plugins/vue-awesome-swiper.js', ssr: false}
   ],
   /*
    * Scroll Top

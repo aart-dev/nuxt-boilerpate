@@ -1,5 +1,5 @@
 {
-  "TEST_TEXT": "你好",
+  "TEST_TEXT": "[CN]你好",
 
   "COMMON_INVALID_INPUT_VALUE": "입력값을 확인해주세요.",
   "COMMON_VALIDATION_SUCESS": "该代码已被验证。",

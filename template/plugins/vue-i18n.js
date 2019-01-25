@@ -34,13 +34,12 @@ export default ({app, store, req}) => {
     locale: langSetting,
     fallbackLocale: 'ko-KR',
     messages: {
-      // 접두어
-      // COMMON : 사이트 공통
-      'ko-KR': require('~/locales/ko-KR.json'),
-      'en': require('~/locales/en-US.json'),
-      'en-US': require('~/locales/en-US.json'),
-      'zh': require('~/locales/zh-CN.json'),
-      'zh-CN': require('~/locales/zh-CN.json')
+      'ko-KR': require('~/plugins/locales/ko-KR.json'),
+      'en': require('~/plugins/locales/en-US.json'),
+      'en-US': require('~/plugins/locales/en-US.json'),
+      'zh-CN': require('~/plugins/locales/zh-CN.json'),
+      'zh-TW': require('~/plugins/locales/zh-TW.json'),
+      'ja-JP': require('~/plugins/locales/ja-JP.json')
     }
   })
 }
@@ -82,8 +81,12 @@ const getLanguageCountryCode = (value) => {
     result = 'ko-KR'
   } else if (value.indexOf('en') !== -1) {
     result = 'en-US'
-  } else if (value.indexOf('zh') !== -1) {
+  } else if (value.indexOf('zh-CN') !== -1) {
     result = 'zh-CN'
+  } else if (value.indexOf('zh-TW') !== -1) {
+    result = 'zh-TW'
+  } else if (value.indexOf('ja') !== -1) {
+    result = 'ja-JP'
   } else {
     result = 'en-US'
   }
@@ -102,6 +105,12 @@ const getLanguageCodeForValidation = (value) => {
       break
     case 'zh-CN':
       result = 'zh_CN'
+      break
+    case 'zh-TW':
+      result = 'zh_TW'
+      break
+    case 'ja-JP':
+      result = 'ja-JP'
       break
     default:
       result = 'en'

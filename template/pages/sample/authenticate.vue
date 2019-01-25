@@ -49,14 +49,16 @@
     },
     methods: {
       validateLogin (e) {
+        /**
+         * 유효성 검사.
+         * */
         e.preventDefault()
         let $this = this
-        // Validate
         this.$validator.validateAll().then((result) => {
           if (result) {
             // success process
             console.debug('success process')
-            $this.login()
+            $this.handleOnClickLogin()
             return false
           }
           // fail process
@@ -64,9 +66,9 @@
           return false
         })
       },
-      login () {
+      handleOnClickLogin () {
         /**
-         * 이메일 로그인
+         * 이메일 로그인.
          * */
         let $this = this
         let email = this.email
@@ -76,6 +78,7 @@
           $this.$store.commit(types.mutations.ROOT_SET_TOKEN, resp.data.access_token)
           $this.$router.push({name: 'index'})
         }).catch(err => {
+          // TODO 에러 핸들러 적용
           console.error(err)
           if (err.response.status === 401) {
             alert('로그인 정보가 올바르지 않습니다.')
@@ -94,6 +97,7 @@
             console.debug('success', resp)
             this.$router.replace('/')
           } else if (resp.data.result === 'fail') {
+            // TODO 에러 핸들러 적용
             if (resp.data.message === 'LEAVED_ACCOUNT') {
               alert('탈퇴한 계정입니다.')
             } else if (resp.data.message === 'NOT_EXISTED_ACCOUNT') {
@@ -101,13 +105,9 @@
             }
           }
         }).catch(err => {
+          // TODO 에러 핸들러 적용
           console.error(err)
           alert('로그인에 실패했습니다.')
-          // if (err.response.status === 400) {
-          //   if (err.response.data.message === 'NON_EXISTENT_EMAIL') {
-          //     console.log('이메일 정보가 없는 SNS 계정입니다.')
-          //   }
-          // }
         })
       }
     }
