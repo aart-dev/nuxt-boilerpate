@@ -16,6 +16,7 @@ export const types = {
     // COMMON
     COMMON_GET_LANGUAGE: 'getLanguageList', // 지원하는 언어 목록 가져오기
     COMMON_GET_COUNTRY_CODE: 'getCountryCode', // 국가코드-국가 정보 목록 가져오기
+    COMMON_STORE_USER_INFO: 'storeUserInfo', // 사용자 정보를 store에 저장
 
     // EXAMPLE
     COMMON_SAMPLE: 'commonSample', // 예시

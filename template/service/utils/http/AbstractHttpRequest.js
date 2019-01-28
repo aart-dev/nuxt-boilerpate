@@ -3,10 +3,13 @@
  *
  * Deokin 2019.1.24(완료)
  * */
+import Cookies from 'js-cookie'
 import HttpErrorHandleService from './HttpErrorHandleService'
 
+const acToken = Cookies.get(process.env.ACCESS_TOKEN_NAME)
+
 export default class AbstractHttpRequest extends HttpErrorHandleService {
-  constructor ({accessToken = '', language = 'ko-KR', baseUrl = process.env.API_SERVER_ADDRESS} = {}) {
+  constructor ({accessToken = acToken, language = 'ko-KR', baseUrl = process.env.API_SERVER_ADDRESS} = {}) {
     super()
     this.baseUrl = baseUrl
     this.language = language

@@ -10,7 +10,7 @@ Vue.use(VueAxios, axios)
 Vue.use(VueAuthenticate, {
   baseUrl: process.env.API_SERVER_ADDRESS, // 로그인 서버의 API domain
   loginUrl: '/api/v1/login', // login() 을 호출했을 때 요청되는 주소
-  // tokenPrefix: 'pm', // 토큰을 저장될 때 key name에 붙는 prefix
+  tokenPrefix: '', // 토큰을 저장될 때 key name에 붙는 prefix
   tokenName: process.env.ACCESS_TOKEN_NAME, // 토큰을 저장될 때의 key name
   storageType: 'cookieStorage', // 토큰을 저장할 저장소
   cookieStorage: {

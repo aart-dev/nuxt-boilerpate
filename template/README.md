@@ -36,7 +36,7 @@ $ pm2 logs <app_name|id>
 $ pm2 show monit
 ```
 
-## Project Directory Structure
+## Directory Structure
 * **Api** : API Server 설정.(ExpressJS)
 * **Assets** : Less, Sass, JS 등 컴파일 되지 않은 에셋들을 포함.(Webpack Loader 필요시.)
 * **Components** : Vue.js Component 를 포함.

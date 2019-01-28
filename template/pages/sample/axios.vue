@@ -9,17 +9,17 @@
 
 <script>
   import AxiosService from '~/service/utils/http/AxiosService'
-  import LocalizationService from '~/service/api/setting/localizationService'
+  import APILocalizationService from '~/service/api/setting/APILocalizationService'
 
   const http = new AxiosService()
-  const locale = new LocalizationService({language: 'kor'})
+  const locale = new APILocalizationService({language: 'kor'})
 
   export default {
     async asyncData () {
       // Service
-      let {data: data1} = await locale.requestGet('/api/v1/setting/language')
+      let {data: data1} = await locale.getLanguage()
       // Custom Request
-      let {data: data2} = await http.requestGet('/api/v1/setting/language')
+      let {data: data2} = await http.requestGet({url: '/api/v1/setting/language'})
       return {
         sample1: data1,
         sample2: data2

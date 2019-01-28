@@ -20,6 +20,10 @@ const actions = {
       requestUrl: '/api/v1/countries',
       isTokenRequired: isTokenRequired
     }, {root: true})
+  },
+  [types.actions.USER_STORE_USER_INFO] (context, info) {
+    // context.rootState.userInfo = info
+    context.commit(types.mutations.ROOT_SET_USER_INFO, info, { root: true })
   }
 }
 

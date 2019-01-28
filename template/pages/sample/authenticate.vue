@@ -38,12 +38,12 @@
 </template>
 
 <script>
-  import { types } from '~/store/modules/types'
+  import {types} from '~/store/modules/types'
 
   export default {
     data () {
       return {
-        email: 'admin@aartkorea.com',
+        email: 'bowom90@aartkorea.com',
         password: '1234'
       }
     },
@@ -109,6 +109,10 @@
           console.error(err)
           alert('로그인에 실패했습니다.')
         })
+      },
+      handleOnClickLogout () {
+        this.$auth.logout()
+        location.href = '/'
       }
     }
   }

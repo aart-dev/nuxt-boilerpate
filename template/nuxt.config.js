@@ -75,8 +75,8 @@ module.exports = {
    * Global Variables
    * */
   env: {
-    API_SERVER_ADDRESS: 'http://192.168.0.19:8881',
-    LANGUAGE_COOKIE_NAME: 'brand-language',
+    API_SERVER_ADDRESS: 'http://192.168.0.19:8080',
+    LANGUAGE_COOKIE_NAME: 'aart-language',
     ACCESS_TOKEN_NAME: 'aart_access_token'
   },
   /*
@@ -135,6 +135,7 @@ module.exports = {
    * Scroll Top
    * */
   router: {
+    middleware: ['check-auth'],
     scrollBehavior: function (to, from, savedPosition) {
       return {x: 0, y: 0}
     }

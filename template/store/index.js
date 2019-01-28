@@ -1,10 +1,11 @@
-import { types } from './modules/types'
-// import common from './modules/common'
+import {types} from './modules/types'
+import common from './modules/common'
 // import user from './modules/user'
 // import data from './modules/data'
 
 // 모듈
 export const modules = {
+  common
 }
 
 export const state = () => ({
@@ -12,6 +13,10 @@ export const state = () => ({
   language: 'ko-KR',
   userInfo: {}
 })
+
+export const getters = {
+  [types.getters.ROOT_IS_AUTHENTICATED]: state => !!state.acToken
+}
 
 export const mutations = {
   [types.mutations.ROOT_SET_TOKEN] (state, at) {

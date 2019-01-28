@@ -23,6 +23,7 @@ npm install # or yarn install
 - [vue-awesome-swiper](https://github.com/surmon-china/vue-awesome-swiper)
 - [vue-authenticate](https://github.com/dgrubelic/vue-authenticate)
 - [vee-validate](https://baianat.github.io/vee-validate/)
+- [vue-lodash](https://github.com/Ewocker/vue-lodash)
 
 
 

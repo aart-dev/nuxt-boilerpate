@@ -1,4 +1,5 @@
-import { types, _types } from '~/store/modules/types'
+import {types, _types} from '~/store/modules/types'
+import APIUserService from '~/service/api/account/APIUserService'
 
 export default async function (context) {
   /**
@@ -7,7 +8,6 @@ export default async function (context) {
    * 목적 3. access_token이 유효하지 않으면 mypage 등 접근 불가(홈페이지로 redirect)
    */
   let accessToken = getAccessTokenFromCookie(context.req)
-
   if (!accessToken) {
     // 목적 1 이행.
     if (disallowPathToNonMember(context.route.path)) {
@@ -18,8 +18,11 @@ export default async function (context) {
     context.store.commit(types.mutations.ROOT_SET_TOKEN, accessToken)
     try {
       // 목적 2 이행.
-      let { data: userInfo } = await context.store.dispatch(_types('user', types.actions.USER_GET_INFO))
-      context.store.dispatch(_types('user', types.actions.USER_STORE_USER_INFO), userInfo)
+      // TODO 유저 정보 스토어에 담기
+      const user = new APIUserService({accessToken: accessToken})
+      await user.me().then((resp) => {
+        context.store.dispatch(_types('common', types.actions.COMMON_STORE_USER_INFO), resp.data)
+      })
     } catch (err) {
       // 목적 3 이행.
       console.error(err)
@@ -55,7 +58,7 @@ const disallowPathToNonMember = (path) => {
 const deleteAccessTokenInCookie = (req, res) => {
   // TODO: access token 삭제 작업
   if (process.server) {
-    res.clearCookie(process.env.ACCESS_TOKEN_NAME, { domain: req.hostname, path: '/' })
+    // res.clearCookie(process.env.ACCESS_TOKEN_NAME, {domain: req.hostname, path: '/'})
   } else {
     document.cookie = `${process.env.ACCESS_TOKEN_NAME}=;domain=${window.location.hostname};path=/;expires=${new Date(0)};`
   }

@@ -46,7 +46,7 @@ export default class AxiosService extends AbstractHttpRequest {
   }
 
   // Request Get
-  requestGet (url, config) {
+  requestGet ({url, config} = {}) {
     console.debug('::: Axios Request Get :::')
     return this.axios.get(
       url, this.initConfig(config)
@@ -58,9 +58,8 @@ export default class AxiosService extends AbstractHttpRequest {
   }
 
   // Request Post
-  requestPost (url, body, config) {
+  requestPost ({url, body, config} = {}) {
     console.debug('::: Axios Request Post :::')
-    config.headers['accept-language'] = this.language
     return this.axios.post(
       url, body, this.initConfig(config)
     ).then(resp => {
@@ -71,9 +70,8 @@ export default class AxiosService extends AbstractHttpRequest {
   }
 
   // Request Put
-  requestPut (url, body, config) {
+  requestPut ({url, body, config} = {}) {
     console.debug('::: Axios Request Put :::')
-    config.headers['accept-language'] = this.language
     return this.axios.put(
       url, body, this.initConfig(config)
     ).then(resp => {
@@ -84,9 +82,8 @@ export default class AxiosService extends AbstractHttpRequest {
   }
 
   // Request Patch
-  requestPatch (url, body, config) {
+  requestPatch ({url, body, config} = {}) {
     console.debug('::: Axios Request Patch :::')
-    config.headers['accept-language'] = this.language
     return this.axios.patch(
       url, body, this.initConfig(config)
     ).then(resp => {
@@ -97,9 +94,8 @@ export default class AxiosService extends AbstractHttpRequest {
   }
 
   // Request Delete
-  requestDelete (url, config) {
+  requestDelete ({url, config} = {}) {
     console.debug('::: Axios Request Delete :::')
-    config.headers['accept-language'] = this.language
     return this.axios.delete(
       url, this.initConfig(config)
     ).then(resp => {

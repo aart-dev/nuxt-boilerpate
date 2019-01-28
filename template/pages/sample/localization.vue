@@ -19,13 +19,13 @@
 
 <script>
   import Cookies from 'js-cookie'
-  import LocalizationService from '~/service/api/setting/localizationService'
+  import APILocalizationService from '~/service/api/setting/APILocalizationService'
 
-  const locale = new LocalizationService()
+  const locale = new APILocalizationService()
 
   export default {
     async asyncData () {
-      let {data} = await locale.requestGet('/api/v1/setting/language')
+      let {data} = await locale.requestGet({url: '/api/v1/setting/language'})
       return {
         langList: data
       }
